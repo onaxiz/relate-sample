@@ -68,17 +68,6 @@ pages:
 
         Рассмотрим примеры построения математических моделей линейного программирования на следующей странице. 
 
-
--
-    type: Page
-    id: vectors
-    content: |
-
-        # Vectors
-
-        A vector is pretty straight.
-
-
 -
     type: Page
     id: ipynb
@@ -122,6 +111,14 @@ pages:
         z=2 x_{1}+3 x_{2} \rightarrow \max \ (12)
         $$
 
+-
+    type: Page
+    id: vectors
+    content: |
+
+        # Vectors
+
+        A vector is pretty straight.
 
 completion_text: |
 
