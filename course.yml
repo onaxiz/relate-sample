@@ -23,25 +23,15 @@ chunks:
 
         Перейти к чтению теории [можно нажав сюда](flow:001-linalg-recap). 
 
-        Перейти к прохождению тестов [sample quiz](flow:quiz-test).
+        Перейти к прохождению тестов [тестироание](flow:quiz-test).
 
-        Классные встроенные pdf [PDF](repocur:pdfs/sample.pdf).
-
-        Статические (не интерактивные) страницы[static (i.e.
-        non-interactive) pages](staticpage:test).
-
-        Remember, this image shows the model that RELATE is trying to put out
-        of business:
-
-        <img src="https://fw-t.ru/templates/yootheme/cache/bpm-for-smb-a00d6aa1.jpeg">
+        <img width="500" src="https://fw-t.ru/templates/yootheme/cache/bpm-for-smb-a00d6aa1.jpeg">
 
         (![creative commons](repo:images/cc.png)/by [kevin dooley](https://secure.flickr.com/photos/pagedooley/13905987989/) on Flickr)
 
         <div class="well" markdown="1">
-          *RELATE* <i class="fa fa-heart"></i>
-
-          (Note that all of this is sample content. RELATE does not clutter
-          your course page with information about itself.)
+            В случае возникновения вопросов, связанных с работой сайта, а также при нахождении багов
+            прошу писать на почту: onaxiz@tutanota.com
         </div>
 
 -
