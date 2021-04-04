@@ -68,13 +68,10 @@ pages:
 
         Рассмотрим примеры построения математических моделей линейного программирования на следующей странице. 
 
-<<<<<<< Updated upstream
-=======
         
         {% from "content-macros.jinja" import youtube %}
         {{ youtube("QH2-TGUlwu4") }}
 
->>>>>>> Stashed changes
 -
     type: Page
     id: vectors
