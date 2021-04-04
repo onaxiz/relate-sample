@@ -68,9 +68,6 @@ pages:
 
         Рассмотрим примеры построения математических моделей линейного программирования на следующей странице. 
 
-        
-        {% from "content-macros.jinja" import youtube %}
-        {{ youtube("QH2-TGUlwu4") }}
 
 -
     type: Page
@@ -87,66 +84,43 @@ pages:
     id: ipynb
     content: |
 
-      # Ipython notebook render examples
-
-      The following examples were using [this ipynb file](repocur:ipynbs/Ipynb_example.ipynb) in `ipynbs` folder of this repo.
-
-      ## Fully rendered
-      
-      The following markdown was used to render the full notebook:
-      
-      ```
-      {{ '{{ render_notebook_cells("ipynbs/Ipynb_example.ipynb") }}' }}
-      ```
-
-      Result:
-
-      {{ render_notebook_cells("ipynbs/Ipynb_example.ipynb") }}
-
-      ## Sliced
-
-      We can choose which cells (by their 0-based indices) to be rendered with arg `indices`.
-
-      For example, cells 0 through 4 can be rendered with the following markdown:
+        ##Примеры реальных задач линейного программирования
 
 
-      ```
-      {{ '{{ render_notebook_cells("ipynbs/Ipynb_example.ipynb", indices=[0,1,2,3,4]) }}' }}
-      ```
+        \bfseries Пример 1. \mdseries Завод производит два вида продукции: велосипеды и мотоциклы. При этом цех по сборке велосипедов имеет мощность 100 тыс. шт. в год, цех по сборке мотоциклов - 30 тыс. шт. Одна группа механических цехов завода может производить либо детали для 120 тыс. велосипедов, либо детали для 40 тыс. мотоциклов, либо другую комбинацию деталей, ограниченную этими данными. Другая группа механических цехов может выпускать детали либо для 80 тыс. велосипедов, либо для 60 тыс. мотоциклов, либо любую допустимую их комбинацию. В результате реализации каждой тысячи велосипедов завод получает прибыль в 2 тыс. руб., а каждой тысячи мотоциклов - 3 тыс. руб.
 
-      Or using `jinja2` built-in function [`range`](http://jinja.pocoo.org/docs/2.9/templates/#range):
+        Найти такое сочетание выпусков продукции, которое дает наибольшую сумму прибыли.
 
-      ```
-      {{ '{{ render_notebook_cells("ipynbs/Ipynb_example.ipynb", indices=range(0,4)) }}' }}
-      ```
 
-      Result:
+        \bfseries Решение \mdseries В качестве переменных задачи естественно взять количество велосипедов и мотоциклов, выпускаемых заводом в год, тыс. шт.: $x_{1}$ и $x_{2} .$
 
-      {{ render_notebook_cells("ipynbs/Ipynb_example.ipynb", indices=range(0,4)) }}
-
-      ## With markdown cleared
-
-      Use `clear_markdown` to get the result with content of *all* markdown cells cleared:
-
-      ```
-      {{ '{{ render_notebook_cells("ipynbs/Ipynb_example.ipynb", clear_markdown=True) }}' }}
-      ```
-
-      Result:
-
-      {{ render_notebook_cells("ipynbs/Ipynb_example.ipynb", clear_markdown=True) }}
-
-      ## With code execution output cleared
-
-      Use `clear_output` to get the result with output of *all* code cells cleared:
-
-      Result:
-
-      ```
-      {{ '{{ render_notebook_cells("ipynbs/Ipynb_example.ipynb", clear_output=True) }}' }}
-      ```
-
-      {{ render_notebook_cells("ipynbs/Ipynb_example.ipynb", clear_output=True) }}
+        Учитывая возможности сборочных цехов, необходимо потребовать, чтобы
+        $$
+        \begin{array}{l}
+        x_{1} \leq 100 \ (6) \\   
+        x_{2} \leq 30 \ \  (7)  
+        \end{array}
+        $$
+        Перейдем теперь к анализу возможностей цехов. При этом необходимо учитывать, что при выпуске обоих видов продукции должно выполняться условие пропорциональности количества продукции данного вида доле производственной мощности, занятой ее выпуском. Если предусматривается производство 1000 велосипедов (единицы продукции первого вида, т. е. $x_{1}=1$ ), то доля занятых производственных мощностей механических цехов первой группы составит 1/120 суммы всех мощностей, принимаемой в данном случае за единицу; на выпуск же $x_{1}$ тыс. велосипедов потребуется занять $(1 / 120) x_{1}$ всей мощности. Аналогично для производства $x_{2}$ тыс. мотоциклов не- обходимо выделить $(1 / 40) x_{2}$ всей мощности. Так что для реализации плана $\left(x_{1}, x_{2}\right)$ потребуется предусмотреть $\left((1 / 120) x_{1}+(1 / 40) x_{2}\right)$ мощности механических цехов первой группы. Но в производственном процессе может быть использована не более чем вся наличная производственная мощность рассматриваемых цехов, следовательно
+        $$
+        (1 / 120) x_{1}+(1 / 40) x_{2} \leq 1 \ (8)
+        $$
+        Точно так же получаем ограничения по производственной мощности механических цехов второй группы:
+        $$
+        (1 / 80) x_{1}+(1 / 60) x_{2} \leq 1 \ (9)
+        $$
+        По смыслу задачи
+        $$
+        x_{1} \geq 0, x_{2} \geq 0 \ (10)
+        $$
+        Любой план $\left(x_{1}, x_{2}\right),$ удовлетворяющий ограничениям (6)-(10), будет допустимым и даст предприятию прибыль, тыс. руб.
+        $$
+        z=2 x_{1}+3 x_{2} \ (11)
+        $$
+        Соотношения (6)-(11) образуют математическую модель задачи:
+        $$
+        z=2 x_{1}+3 x_{2} \rightarrow \max \ (12)
+        $$
 
 
 completion_text: |
